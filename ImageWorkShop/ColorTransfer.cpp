@@ -19,8 +19,6 @@ void ColorTransfer::localVarianceTransfer(Mat &c1, Mat &c2){
 	computeLocalVariances(targetImg_lab, 2, tV);
 	//imshow("sV", sV);
 	//imshow("tV", tV);
-
-
 	//扫面线方法
 
 	//取种子点
