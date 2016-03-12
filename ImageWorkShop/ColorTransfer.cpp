@@ -28,8 +28,8 @@ void ColorTransfer::localVarianceTransfer(Mat &c1, Mat &c2){
 	int height_offset = srcImg_lab.rows / 15;
 	int recordRow[225];
 	int recordCol[225];
-	float recordValue[225];
-
+	float recordValueL[225];
+	float recordValueS[225];
 	//cvtColor(c1, c3, CV_BGR2Lab );  
     //cvtColor(c2, c4, CV_BGR2Lab); 
 
@@ -41,9 +41,8 @@ void ColorTransfer::localVarianceTransfer(Mat &c1, Mat &c2){
 		for(int col = 0; col < srcImg_lab.cols - width_offset; col += width_offset){
 			int crow = row + (rand() % height_offset);
 			int ccol = col + (rand() % width_offset);
-			float td = srcImg_lab.at<Vec3f>(crow, ccol).val[0];
-			float tl = sV.at<Vec3f>(crow, ccol).val[0];
-			recordValue[num] = td + tl;
+			recordValueL[num] = srcImg_lab.at<Vec3f>(crow, ccol).val[0];
+			recordValueS[num] = sV.at<Vec3f>(crow, ccol).val[0];
 			recordRow[num] = crow;
 			recordCol[num] = ccol;
 			num++;
@@ -56,11 +55,10 @@ void ColorTransfer::localVarianceTransfer(Mat &c1, Mat &c2){
 		for(int col = 0; col < targetImg_lab.cols; col++){
 			float td = targetImg_lab.at<Vec3f>(row, col).val[0];
 			float tl = tV.at<Vec3f>(row, col).val[0];
-			float re = td + tl;
 			float min = 10000;
 			int x = 0, y = 0;
 			for(int i = 0; i < num; i++){
-				int dif = re - recordValue[i];
+				int dif = abs(td - recordValueL[i]) + abs(tl - recordValueS[i]);
 				if(dif < 0) dif *= -1;
 				if(dif < min){
 					min = dif;

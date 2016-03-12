@@ -1,0 +1,7 @@
+*.sdf
+*.opensdf
+Win32/
+ImageWorkShop/Debug
+ImageWorkShop/Release
+ImageWorkShop/GeneratedFiles/Debug
+ImageWorkShop/GeneratedFiles/Release

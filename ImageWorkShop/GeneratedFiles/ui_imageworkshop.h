@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'imageworkshop.ui'
 **
-** Created by: Qt User Interface Compiler version 5.1.1
+** Created by: Qt User Interface Compiler version 5.4.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -877,7 +877,7 @@ public:
         labelGauss_4->setText(QApplication::translate("ImageWorkShopClass", "B_mid", 0));
         label_5->setText(QApplication::translate("ImageWorkShopClass", "draw skinmask", 0));
         label_4->setText(QApplication::translate("ImageWorkShopClass", "filter radius", 0));
-        pushButton_Exfoliating->setText(QApplication::translate("ImageWorkShopClass", "exfoliating", 0));
+        pushButton_Exfoliating->setText(QApplication::translate("ImageWorkShopClass", "dermabrasion", 0));
         label_3->setText(QApplication::translate("ImageWorkShopClass", "value dev", 0));
         label_2->setText(QApplication::translate("ImageWorkShopClass", "spatial dev", 0));
         label->setText(QApplication::translate("ImageWorkShopClass", "whiten skin", 0));
